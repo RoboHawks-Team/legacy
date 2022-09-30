@@ -1,0 +1,311 @@
+
+<!DOCTYPE html>
+   <div class="camera"style="background-color:#fa8e4c;">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+<body>
+<p><span id="errorMsg"></span></p>
+   
+<!-- Stream video via webcam -->
+<div class="video-wrap">
+    <video id="video" playsinline autoplay></video>
+</div>
+
+<!-- Trigger canvas web API -->
+<div class="controller">
+    <button id="snap">Capture</button>
+</div>
+
+<!-- Webcam video snapshot -->
+<canvas id="canvas" width="160" height="120"></canvas>
+<script>
+  'use strict';
+
+const video = document.getElementById('video');
+const canvas = document.getElementById('canvas');
+const snap = document.getElementById("snap");
+const errorMsgElement = document.querySelector('span#errorMsg');
+
+const constraints = {
+    audio: true,
+    video: {
+        width: 160, height: 120
+    }
+};
+
+// Access webcam
+async function init() {
+    try {
+        const stream = await navigator.mediaDevices.getUserMedia(constraints);
+        handleSuccess(stream);
+    } catch (e) {
+        errorMsgElement.innerHTML = `navigator.getUserMedia error:${e.toString()}`;
+    }
+}
+
+// Success
+function handleSuccess(stream) {
+    window.stream = stream;
+    video.srcObject = stream;
+}
+
+// Load init
+init();
+
+// Draw image
+var context = canvas.getContext('2d');
+snap.addEventListener("click", function() {
+    context.drawImage(video, 0, 0, 640, 480);
+});
+</script>
+        <Style>
+.Camera{
+  position: absolute;
+  top: 40px;
+  left: 50%;
+}
+</style>
+</body>
+</div>
+<div class="online"style="background-color:#fa8e4c;">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+<body>
+<body onload="online()">
+<p id="demo"></p><script>
+function online() {
+  var x = "Is the browser online: " + navigator.onLine;
+  document.getElementById("demo").innerHTML = x;
+}
+</script></body>
+</body>
+</div>
+    <Style>
+.online{
+  position: absolute;
+  top: 50px;
+  right: 16px;
+}
+</style>
+    <div class="ip"style="background-color:#fa8e4c;">
+<!-- onload code if needed
+<body onload="GFG_Fun()">
+-->
+<head><style>
+	p, h1 {
+		color: black
+	}
+	</style><script src= "https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js">
+	</script><script>
+	$.getJSON("https://api.ipify.org?format=json", function(data) {
+		$("#gfg").html(data.ip);
+	})
+	</script></head><body><center><h3>The I.P. Address of this device:</h3><p id="gfg"></p></center></body>
+        <Style>
+.ip{
+  position: absolute;
+  top: 87px;
+  right: 16px;
+}
+</style>
+</div>
+<div class="location" style="background-color:#fa8e4c;">
+<!-- onload code if needed
+<body onload="GFG_Fun()">
+-->
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+  <body>
+    <div id="location"></div>
+    <script>
+      var div  = document.getElementById("location");
+      function getLocation() {
+        if (navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition(showPosition, showError);
+        } else {
+          div.innerHTML = "The Browser Does not Support Geolocation";
+        }
+      }
+
+      function showPosition(position) {
+        div.innerHTML = "Latitude: " + position.coords.latitude + "<br>Longitude: " + position.coords.longitude;
+      }
+
+      function showError(error) {
+        if(error.PERMISSION_DENIED){
+            div.innerHTML = "The User have denied the request for Geolocation.";
+        }
+      }
+      getLocation();
+    </script>
+  </body>
+    <Style>
+.location{
+  position: absolute;
+  top: 50px;
+  right: 16px;
+}
+</style>
+</body>
+</div>
+<div class="ostest" style="background-color:#fa8e4c;">
+<body onload="GFG_Fun()">
+<body style="text-align:center;" id="body">
+	<p id="GFG_UP"
+	style="font-size: 19px;
+			font-weight: bold;">
+	</p>
+	<p id="GFG_DOWN"
+	style="color: black;
+			font-size: 24px;
+			font-weight: bold;">
+	</p>
+	<script>
+		HTMLDocument.prototype.e = document.getElementById;
+		var el_up = document.e("GFG_UP");
+		var el_down = document.e("GFG_DOWN");
+		el_up.innerHTML = "Your os is";
+		var Name = "Not known";
+		if (navigator.appVersion.indexOf("Win") != -1) Name =
+		"Windows";
+		if (navigator.appVersion.indexOf("Mac") != -1) Name =
+		"MacOS";
+		if (navigator.appVersion.indexOf("X11") != -1) Name =
+		"UNIX";
+		if (navigator.appVersion.indexOf("Linux") != -1) Name =
+		"Linux";
+		function GFG_Fun() {
+			el_down.innerHTML = Name;
+		}
+	</script>
+    <Style>
+.ostest{
+  position: absolute;
+  top: 0;
+  right: 16px;
+}
+</style>
+</body>
+	</div>
+	<!-- end -->
+<html lang="en">
+<head>
+    <title>HackerHawks</title>
+    <!--Google Fonts-->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <!--Stylesheets-->
+    <style media="screen">
+    	*,
+*:before,
+*:after{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body{
+    background-color: #000000;
+}
+@@ -180,4 +204,3 @@
+    </script>
+</body>
+	<!-- end -->
+<html lang="en">
+<head>
+
+    <title>RoboHawks</title>
+    <!--Google Fonts-->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <!--Stylesheets-->
+    <style media="screen">
+    	*,
+*:before,
+*:after{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body{
+    background-color: #000000;
+}
+.popup{
+    background-color: #fa8e4c;
+    width: 420px;
+    padding: 30px 40px;
+    position: absolute;
+    transform: translate(-50%,-50%);
+    left: 50%;
+    top: 50%;
+    border-radius: 8px;
+    font-family: "Poppins",sans-serif;
+    display: none; 
+    text-align: center;
+}
+.popup button{
+    display: block;
+    margin:  0 0 20px auto;
+    background-color: transparent;
+    font-size: 30px;
+    color: #fa8e4c;
+		background: #000000;
+		border-radius: 100%;
+		width: 40px;
+		height: 40px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+.popup h2{
+	margin-top: -20px;
+}
+.popup p{
+    font-size: 14px;
+    text-align: justify;
+    margin: 20px 0;
+    line-height: 25px;
+}
+a{
+    display: block;
+    width: 150px;
+    position: relative;
+    margin: 10px auto;
+    text-align: center;
+    background-color: #000000;
+		border-radius: 20px;
+    color: #fa8e4c;
+    text-decoration: none;
+    padding: 8px 0;
+}
+    </style>
+</head>
+<body>
+    <div class="popup">
+        <button id="close">&times;</button>
+         <div Style="color:red">
+        <h2>Warning</h2>
+      </div>
+        <p>
+This site is not Yet Complete! , If You are asked to allow Permissions Those are just for debug if you need it , Click Ok To cotinue To the site Or Click the X To stay on This Debug page.      </p>
+        <a href="home.html">Ok</a>
+    </div>
+    <!--Script-->
+    <script type="text/javascript">
+window.addEventListener("load", function(){
+    setTimeout(
+        function open(event){
+            document.querySelector(".popup").style.display = "block";
+        },
+        2000 
+    )
+});
+
+
+document.querySelector("#close").addEventListener("click", function(){
+    document.querySelector(".popup").style.display = "none";
+});
+    </script>
+</body>
+</html>
